@@ -1,0 +1,19 @@
+{
+  "name": "node-red-node-encoding",
+  "version": "1.0.0",
+  "description": "Node-RED encoding converter wrapper for encoding.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sebastian Apel",
+  "license": "MIT",
+  "node-red": {
+    "nodes": {
+      "encoding": "encoding/encoding.js"
+    }
+  },
+  "dependencies": {
+    "encoding": "^0.1.12"
+  }
+}

@@ -1,0 +1,46 @@
+<script type="text/javascript">
+    RED.nodes.registerType('encoding',{
+        category: 'function',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""},
+            source: {value:"ascii"},
+            destination: {value:"utf8"}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "function.png",
+        label: function() {
+            var name = this.name;
+            if(this.source && this.destination) {
+              name = ("convert " + this.source + " to " + this.destination);
+            }
+            return name || "convert";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="encoding">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-source"><i class="icon-tag"></i> Source</label>
+        <input type="text" id="node-input-source" placeholder="Source">
+    </div>
+    <div class="form-row">
+        <label for="node-input-destination"><i class="icon-tag"></i> Destination</label>
+        <input type="text" id="node-input-destination" placeholder="Destination">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="encoding">
+    <p>Character encoding convertation node. Converts msg.payload from <code>source</code> to <code>destination</code>.</p>
+    <p>Returns result as <code>Buffer</code> in case of <code>msg.payload</code> is <code>Buffer</code>. Returns result as <code>String</code> otherwise.</p>
+    <ul>
+      <li>Source: Current character encoding, might be provided with <code>msg.source</code></li>
+      <li>Destination: Target character encoding, might be provided with <code>msg.destination</code></li>
+    </ul>
+    <p>Utilises npm module <a href="https://www.npmjs.com/package/encoding">encoding</a>.</p>
+</script>
