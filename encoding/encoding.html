@@ -4,8 +4,10 @@
         color: '#a6bbcf',
         defaults: {
             name: {value:""},
-            source: {value:"ascii"},
-            destination: {value:"utf8"}
+            source: {value:"latin1"},
+            destination: {value:"utf8"},
+            field: {value:"payload", required:true},
+            fieldType: {value:"msg", required:true}
         },
         inputs:1,
         outputs:1,
@@ -16,6 +18,13 @@
               name = ("convert " + this.source + " to " + this.destination);
             }
             return name || "convert";
+        },
+        oneditprepare: function() {
+            $("#node-input-field").typedInput({default:this.fieldType||'msg',types:['msg', 'flow', 'global']});
+        },
+        oneditsave: function() {
+            var type = $("#node-input-field").typedInput('type');
+            this.fieldType = type || 'msg';
         }
     });
 </script>
@@ -24,6 +33,10 @@
     <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-field"><i class="fa fa-list"></i> Property</span></label>
+        <input id="node-input-field" type="text" style="width: 70%">
     </div>
     <div class="form-row">
         <label for="node-input-source"><i class="icon-tag"></i> Source</label>
