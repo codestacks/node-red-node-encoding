@@ -14,6 +14,8 @@
     }
   },
   "dependencies": {
-    "encoding": "^0.1.12"
+    "encoding": "^0.1.12",
+    "iconv": "^2.2.3",
+    "iconv-lite": "^0.4.17"
   }
 }
