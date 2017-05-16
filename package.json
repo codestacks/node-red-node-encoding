@@ -1,6 +1,6 @@
 {
   "name": "node-red-node-encoding",
-  "version": "1.1.0",
+  "version": "1.0.0",
   "description": "Node-RED encoding converter wrapper for encoding.",
   "main": "index.js",
   "scripts": {
