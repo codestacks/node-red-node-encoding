@@ -1,7 +1,7 @@
 {
   "name": "node-red-node-encoding",
   "version": "1.1.0",
-  "description": "Node-RED encoding converter wrapper for encoding.",
+  "description": "Node-RED encoding converter wrapper for iconv-lite.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
